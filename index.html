@@ -1,4 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,9 +17,9 @@
             <tbody id="device-list">
                 <c:forEach var="device" items="${devices}">
                     <tr>
-                        <td>${device.name}</td>
-                        <td>${device.power_rating} W</td>
-                        <td>${device.status ? "Bật" : "Tắt"}</td>
+                        <td>Thiết bị 1</td>
+                        <td>Công suất tiêu thụ (W)</td>
+                        <td>Trạng thái ? {"Bật" : "Tắt"}</td>
                         <td>
                             <button onclick="toggleDevice(this, ${device.id})">Bật/Tắt</button>
                             <button onclick="deleteDevice(this, ${device.id})">Xóa</button>
