@@ -1,0 +1,38 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard Thiết Bị</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h2>Dashboard Thiết Bị</h2>
+        <button id="add-device"><i class="fas fa-plus"></i> Thêm thiết bị</button>
+        <table>
+            <thead>
+                <tr><th>Tên</th><th>Công suất (W)</th><th>Trạng thái</th><th>Hành động</th></tr>
+            </thead>
+            <tbody id="device-list">
+                <c:forEach var="device" items="${devices}">
+                    <tr>
+                        <td>${device.name}</td>
+                        <td>${device.power_rating} W</td>
+                        <td>${device.status ? "Bật" : "Tắt"}</td>
+                        <td>
+                            <button onclick="toggleDevice(this, ${device.id})">Bật/Tắt</button>
+                            <button onclick="deleteDevice(this, ${device.id})">Xóa</button>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+        <button id="predict-btn"><i class="fas fa-chart-line"></i> Dự đoán tiêu thụ</button>
+        <canvas id="power-chart"></canvas>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
