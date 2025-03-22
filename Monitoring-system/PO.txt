@@ -1,0 +1,38 @@
+Project Overview: Hệ thống theo dõi thiết bị điện trong nhà
+1. Thông tin chung
+Tên dự án: Hệ thống theo dõi thiết bị điện trong nhà (Home Electrical Device Monitoring System)
+Mục tiêu: Xây dựng một phần mềm hoàn thiện để theo dõi, quản lý và tối ưu hóa việc sử dụng các thiết bị điện trong nhà, tích hợp các công nghệ hiện đại nhằm nâng cao hiệu quả tiết kiệm năng lượng và trải nghiệm người dùng.
+Thành viên nhóm:
+Vinh: Kỹ sư công nghệ cao (Technical Lead, chuyên sâu công nghệ).
+Nguyên: Sinh viên công nghệ (tư duy thuật toán tốt, tự học nhanh).
+Quỳnh: Sinh viên công nghệ (kiến thức nền tảng cơ bản)
+Sơn: Project Manager (trình độ công nghệ yếu, quản lý dự án).
+Thời gian: 6-7 tuần (từ ngày 13/03/2025 đến 24/04/2025, dựa trên ngày hiện tại là 13/03/2025).
+Phương pháp: Quy trình Agile 
+Thành phẩm:
+Một phần mềm hoàn thiện (web hoặc ứng dụng kết hợp IoT/AI).
+Bài thuyết trình PowerPoint (10-15 phút) bao gồm: Giới thiệu, Thiết kế kiến trúc, Thuật toán, Cài đặt.
+2. Mục tiêu
+Mục tiêu chung: Tạo ra một hệ thống theo dõi thiết bị điện trong nhà với giao diện thân thiện, khả năng theo dõi tiêu thụ điện theo thời gian thực, và dự đoán mức tiêu thụ để tối ưu hóa năng lượng.
+Mục tiêu cụ thể:
+Thiết kế hệ thống hỗ trợ quản lý thiết bị điện theo phòng, thời gian, và người dùng.
+Tích hợp công nghệ IoT để thu thập dữ liệu từ thiết bị điện.
+Sử dụng AI/ML để dự đoán mức tiêu thụ điện năng.
+Xây dựng giao diện web hoặc ứng dụng di động dễ sử dụng.
+Hoàn thiện tài liệu thuyết trình chi tiết và trực quan.
+3. Phạm vi (Scope)
+Chức năng chính:
+Quản lý thiết bị điện (thêm, sửa, xóa, tìm kiếm).
+Quản lý phòng và người dùng.
+Theo dõi tiêu thụ điện theo thời gian thực (ngày, tuần, tháng).
+Thống kê và biểu đồ trực quan.
+Dự đoán mức tiêu thụ điện (dựa trên dữ liệu lịch sử).
+Công nghệ đề xuất (cập nhật, tiên tiến hơn tài liệu cũ):
+Backend: Spring Boot (Java) hoặc FastAPI (Python) thay cho Laravel để xử lý hiệu suất cao và dễ tích hợp AI/IoT.
+Frontend: React.js hoặc Flutter (cho web và mobile).
+Database: PostgreSQL (hỗ trợ tốt dữ liệu thời gian thực và phân tích).
+IoT: Sử dụng MQTT protocol và Raspberry Pi (giả lập thiết bị điện).
+AI/ML: Python (TensorFlow hoặc Scikit-learn) để dự đoán tiêu thụ điện.
+Giới hạn:
+Không triển khai phần cứng thực tế, chỉ mô phỏng IoT qua Raspberry Pi hoặc dữ liệu giả lập.
+Tập trung vào giao diện web, ứng dụng di động là tùy chọn nâng cao nếu còn thời gian.
