@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import com.project.model.RawLog;
 import com.project.repository.RawLogRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class RawLogService {
      private final RawLogRepository rawLogRepository;
@@ -15,15 +17,16 @@ public class RawLogService {
          this.rawLogRepository = rawLogRepository;
      }
 
-     public void deleteRawLogById(int id) {
-         rawLogRepository.deleteById(id);
-     }
-
-     public RawLog getRawLogById(int id) {
-         return rawLogRepository.findById(id);
-     }
-
-     public List<RawLog> findAllRawLog() {
-            return rawLogRepository.findAll();
-     }
+    // Để @Modifying được chạy, ta cần @Transactional
+    @Transactional
+    public void deleteAllAndReset() {
+        rawLogRepository.deleteAllRows();      
+        rawLogRepository.resetAutoIncrement();  
+        System.out.println("Đã xóa tất cả và reset AUTO_INCREMENT thành công!");
+    }
+    
+    public void printRowCount() {
+        long count = rawLogRepository.countAllRows();
+        System.out.println("Số hàng trong bảng RawLog: " + count);
+    }
 }
