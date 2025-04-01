@@ -21,6 +21,7 @@ public class AggregatedLogController {
         Map<String, AggregatedLog> result = aggregatedLogService.computeAggregatedEnergyPerDay();
 
        
+        // In tạm ra console (nếu muốn):
         System.out.println("Kết quả computeAggregatedEnergyPerDay:");
         result.forEach((day, aggLog) -> {
             System.out.println("Ngày: " + day + 
@@ -33,3 +34,4 @@ public class AggregatedLogController {
        
     }
 }
+
