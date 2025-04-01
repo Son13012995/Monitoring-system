@@ -17,7 +17,6 @@ public interface SmartOutletRepository extends JpaRepository<SmartOutlet, Intege
 
     SmartOutlet findById(int id);
 
-    @SuppressWarnings({ "null", "unchecked" })
     SmartOutlet save(SmartOutlet smartOutlet);
 
 

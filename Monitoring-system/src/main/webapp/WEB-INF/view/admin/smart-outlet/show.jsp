@@ -10,12 +10,9 @@
             <meta name="description" content="Monitoring-system" />
             <meta name="author" content="4 Monitoring-system" />
             <title>Dashboard Smart Outlet</title>
-<<<<<<< HEAD
             <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-            <link href="css/styles.css" rel="stylesheet" />
-=======
-            <link href="/css/style.css" rel="stylesheet" />
->>>>>>> d3fd5ea (refactor : update algorithm AggregatedLog)
+            <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" />
+
             <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         </head>
 
@@ -36,7 +33,7 @@
                                     <div class="col-12 mx-auto">
                                         <div class="d-flex justify-content-between">
                                             <h3>Table devices</h3>
-                                            <a href="/admin/user/create" class="btn btn-primary">Create Smart Outlet</a>
+                                            <a href="/admin/smart-outlet/create" class="btn btn-primary">Create Smart Outlet</a>
                                         </div>
 
                                         <hr />

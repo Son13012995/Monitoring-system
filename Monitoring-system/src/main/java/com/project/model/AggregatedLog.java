@@ -2,6 +2,11 @@ package com.project.model;
 
 
 
+import java.io.Serializable;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,9 +15,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-
-import java.io.Serializable;
-import java.util.Date;
 
 @Entity
 @Table(name = "AggregatedLog")
@@ -32,10 +34,11 @@ public class AggregatedLog implements Serializable {
     @Column(name = "avg_power")
     private float avgPower;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssX", timezone = "UTC")
     @Column(name = "timestamp")
     private Date date;
 
-    @ManyToOne
+    @ManyToOne(fetch  = jakarta.persistence.FetchType.EAGER)
     @JoinColumn(name = "outlet_id", referencedColumnName = "id")
     private SmartOutlet outlet; // Quan hệ với SmartOutlet (nhiều AggregatedLog thuộc về một SmartOutlet)
 

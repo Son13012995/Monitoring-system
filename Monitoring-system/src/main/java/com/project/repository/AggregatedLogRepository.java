@@ -13,5 +13,5 @@ public interface AggregatedLogRepository extends JpaRepository<AggregatedLog, In
     @SuppressWarnings("null")
     List<AggregatedLog> findAll();
     void deleteById(int id);
-
+    AggregatedLog save(AggregatedLog aggregatedLog);
 }

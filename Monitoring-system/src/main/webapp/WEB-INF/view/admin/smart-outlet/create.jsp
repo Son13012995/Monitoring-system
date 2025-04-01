@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
+c:\Users\NMT\Downloads\nguyen\Monitoring-system\Monitoring-system\src\main\webapp\WEB-INF\view\admin\smart-outlet\create.jsp<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
@@ -11,7 +11,8 @@
     <meta name="description" content="Monitoring-system" />
     <meta name="author" content="4 Monitoring-system" />
     <title>Create Smart Outlet</title>
-    <link href="/css/style.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(document).ready(() => {
@@ -44,7 +45,7 @@
                             <h3>Create a Smart Outlet</h3>
                             <hr />
                             <form:form method="post" action="/admin/smart-outlet/create"
-                                       modelAttribute="newUser" class="row"
+                                       modelAttribute="newSmartOutlet" class="row"
                                        enctype="multipart/form-data"
                             >
 

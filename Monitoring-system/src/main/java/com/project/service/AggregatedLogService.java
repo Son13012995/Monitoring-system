@@ -24,40 +24,31 @@ public class AggregatedLogService {
         this.aggregatedLogRepository = aggregatedLogRepository;
     }
 
-    
-
+    public AggregatedLog save(AggregatedLog aggregatedLog) {
+        return aggregatedLogRepository.save(aggregatedLog);
+    }
    
+    // Phương thức gốc lấy dữ liệu từ DB
     public Map<String, AggregatedLog> computeAggregatedEnergyPerDay() {
-        // 1. Lấy danh sách AggregatedLog từ DB
         List<AggregatedLog> logs = aggregatedLogRepository.findAll();
-        
-        // 2. Gọi hàm tính toán (giống logic bạn viết trong Main)
         Map<String, AggregatedLog> aggregatedData = new HashMap<>();
-        
         if (!logs.isEmpty()) {
             aggregatedData = computeAggregatedEnergyPerDay(logs);
         }
-        
         return aggregatedData;
     }
 
-    // Ham tính avg 
-    private float computeAverageEnergyConsumption(List<Float> readings) {
-        float totalEnergy = 0;
-        for (float reading : readings) {
-            totalEnergy += reading;
-        }
-        float avgEnergy = totalEnergy / readings.size();
-        System.out.println("Trung bình năng lượng: " + avgEnergy);
-        return avgEnergy;
+    // Phương thức test: nhận danh sách đầu vào từ client
+    public Map<String, AggregatedLog> computeAggregatedEnergyPerDayFromInput(List<AggregatedLog> readings) {
+        return computeAggregatedEnergyPerDay(readings);
     }
 
-    // Gom nhóm theo ngày và tính min, max, avg
     private Map<String, AggregatedLog> computeAggregatedEnergyPerDay(List<AggregatedLog> readings) {
         Map<String, List<Float>> dailyReadings = new HashMap<>();
 
-     
         for (AggregatedLog entry : readings) {
+            // Ở đây bạn có thể định dạng lại date theo ý muốn (vd: chỉ lấy ngày)
+            // Ví dụ: dùng entry.getDate().toString() hoặc format theo SimpleDateFormat
             String dateKey = entry.getDate().toString();
             dailyReadings.putIfAbsent(dateKey, new ArrayList<>());
             dailyReadings.get(dateKey).add(entry.getAvgPower());
@@ -74,7 +65,17 @@ public class AggregatedLogService {
         return aggregatedData;
     }
 
-    // Tính min, max, total, trung bình
+    private float computeAverageEnergyConsumption(List<Float> readings) {
+        float totalEnergy = 0;
+        for (float reading : readings) {
+            totalEnergy += reading;
+        }
+        float avgEnergy = totalEnergy / readings.size();
+        System.out.println("Trung bình năng lượng: " + avgEnergy);
+        return avgEnergy;
+    }
+
+    // Tính min, max, tổng và trung bình
     private AggregatedLog computeAggregatedEnergyConsumption(List<Float> readings) {
         float minPower = Float.MAX_VALUE;
         float maxPower = Float.MIN_VALUE;
@@ -83,18 +84,15 @@ public class AggregatedLogService {
         for (float power : readings) {
             if (power < minPower) minPower = power;
             if (power > maxPower) maxPower = power;
-            totalPower += power;  // Tính tổng năng lượng
+            totalPower += power;
         }
 
-        // trung bình năng lượng
         float avgPower = computeAverageEnergyConsumption(readings);
 
-        // In kết quả để debug (không bắt buộc)
         System.out.println("Năng lượng tối thiểu: " + minPower);
         System.out.println("Năng lượng tối đa: " + maxPower);
         System.out.println("Tổng năng lượng: " + totalPower);
 
-        // Trả về 1 AggregatedLog (hoặc bạn có thể tạo DTO chuyên chở kết quả)
         AggregatedLog aggregatedLog = new AggregatedLog();
         aggregatedLog.setMinPower(minPower);
         aggregatedLog.setMaxPower(maxPower);

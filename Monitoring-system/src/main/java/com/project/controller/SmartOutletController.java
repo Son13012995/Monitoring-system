@@ -18,7 +18,7 @@ import com.project.service.SmartOutletService;
 public class SmartOutletController {
 
     @Autowired
-    private final SmartOutletService smartOutletService; 
+    private final SmartOutletService smartOutletService; // Calling service to fetch smart outlet data
 
     public SmartOutletController(SmartOutletService smartOutletService) {
         this.smartOutletService = smartOutletService;
@@ -29,20 +29,20 @@ public class SmartOutletController {
         List<SmartOutlet> smartOutlets = this.smartOutletService.findAllSmartOutlet();
         model.addAttribute("smartOutlets", smartOutlets);
         return "admin/smart-outlet/show";
-    }   
+    }
 
     @RequestMapping("/admin/smart-outlet/{id}")
-     public String getSmartOutletDetailPage(Model model, @PathVariable Integer id) {
-         SmartOutlet smartOutlet = this.smartOutletService.getSmartOutletById(id);
-         model.addAttribute("smartOutlet", smartOutlet);
-         model.addAttribute("id", id);
-         return "admin/smart-outlet/detail";
-     }
- 
+    public String getSmartOutletDetailPage(Model model, @PathVariable Integer id) {
+        SmartOutlet smartOutlet = this.smartOutletService.getSmartOutletById(id);
+        model.addAttribute("smartOutlet", smartOutlet);
+        model.addAttribute("id", id);
+        return "admin/smart-outlet/detail";
+    }
+
     @GetMapping("/admin/smart-outlet/create") // GET
-     public String getCreateSmartOutletPage(Model model) {
-         model.addAttribute("newSmartOutlet", new SmartOutlet());
-         return "admin/smart-outlet/create";
+    public String getCreateSmartOutletPage(Model model) {
+        model.addAttribute("newSmartOutlet", new SmartOutlet());
+        return "admin/smart-outlet/create";
     }
 
     @PostMapping(value = "/admin/smart-outlet/create")
@@ -54,34 +54,35 @@ public class SmartOutletController {
         return "redirect:/admin/smart-outlet";
     }
 
-
     @RequestMapping("/admin/smart-outlet/update/{id}") // GET
-     public String getUpdateSmartOutletPage(Model model, @PathVariable Integer id) {
-         SmartOutlet currentSmartOutlet = this.smartOutletService.getSmartOutletById(id);
-         model.addAttribute("newSmartOutlet", currentSmartOutlet);
-         return "admin/smart-outlet/update";
-     }
- 
-     @PostMapping("/admin/smart-outlet/update")
-     public String postUpdateSmartOutlet(Model model, @ModelAttribute("newSmartOutlet") SmartOutlet smartOutlet) {
-         SmartOutlet currentSmartOutlet = this.smartOutletService.getSmartOutletById(smartOutlet.getId());
-         if (currentSmartOutlet != null) {
-             currentSmartOutlet.setName(smartOutlet.getName());
-             this.smartOutletService.handleSaveSmartOutlet(currentSmartOutlet);
-         }
-         return "redirect:/admin/smart-outlet";
-     }
- 
-     @GetMapping("/admin/smart-outlet/delete/{id}")
-     public String getDeleteSmartOutletPage(Model model, @PathVariable long id) {
-         model.addAttribute("id", id);
-         model.addAttribute("newSmartOutlet", new SmartOutlet());
-         return "admin/smart-outlet/delete";
-     }
- 
-     @PostMapping("/admin/smart-outlet/delete")
-     public String postDeleteSmartOutlet(Model model, @ModelAttribute("newSmartOutlet") SmartOutlet smartOutlet) {
-         this.smartOutletService.deleteSmartOutletById(smartOutlet.getId());
-         return "redirect:/admin/smart-outlet";
-     }
- }
+    public String getUpdateSmartOutletPage(Model model, @PathVariable Integer id) {
+        SmartOutlet currentSmartOutlet = this.smartOutletService.getSmartOutletById(id);
+        model.addAttribute("newSmartOutlet", currentSmartOutlet);
+        return "admin/smart-outlet/update";
+    }
+
+    @PostMapping("/admin/smart-outlet/update")
+    public String postUpdateSmartOutlet(Model model, @ModelAttribute("newSmartOutlet") SmartOutlet smartOutlet) {
+        SmartOutlet currentSmartOutlet = this.smartOutletService.getSmartOutletById(smartOutlet.getId());
+        if (currentSmartOutlet != null) {
+            currentSmartOutlet.setName(smartOutlet.getName());
+            this.smartOutletService.handleSaveSmartOutlet(currentSmartOutlet);
+        }
+        return "redirect:/admin/smart-outlet";
+    }
+
+    @GetMapping("/admin/smart-outlet/delete/{id}")
+    public String getDeleteSmartOutletPage(Model model, @PathVariable long id) {
+        SmartOutlet outlet = new SmartOutlet();
+        outlet.setId((int) id); // hoặc chuyển đổi tương ứng nếu id là Integer
+        model.addAttribute("newSmartOutlet", outlet);
+        return "admin/smart-outlet/delete";
+}
+
+
+    @PostMapping("/admin/smart-outlet/delete")
+    public String postDeleteSmartOutlet(Model model, @ModelAttribute("newSmartOutlet") SmartOutlet smartOutlet) {
+        this.smartOutletService.deleteSmartOutletById(smartOutlet.getId());
+        return "redirect:/admin/smart-outlet";
+    }
+}

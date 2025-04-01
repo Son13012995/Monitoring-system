@@ -11,7 +11,7 @@
                 <meta name="description" content="Monitoring-system" />
                 <meta name="author" content="4 Monitoring-system" />
                 <title>Detail Smart Outlet</title>
-                <link href="/css/style.css" rel="stylesheet" />
+                <link href="/css/styles.css" rel="stylesheet" />
 
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
             </head>
@@ -47,7 +47,7 @@
                                                
                                                 </ul>
                                             </div>
-                                            <a href="/admin/user" class="btn btn-success mt-3">Back</a>
+                                            <a href="/admin/smart-outlet" class="btn btn-success mt-3">Back</a>
 
                                         </div>
 

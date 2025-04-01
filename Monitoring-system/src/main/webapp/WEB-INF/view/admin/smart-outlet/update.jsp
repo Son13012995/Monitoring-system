@@ -11,7 +11,7 @@
                 <meta name="description" content="Monitoring-system" />
                 <meta name="author" content="4 Monitoring-system" />
                 <title>Update Smart Outlet</title>
-                <link href="/css/style.css" rel="stylesheet" />
+                <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" />
 
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
             </head>
@@ -33,9 +33,9 @@
                                         <div class="col-md-6 col-12 mx-auto">
                                             <h3>Update a Smart Outlet</h3>
                                             <hr />
-                                            <form:form method="post" action="/admin/user/update"
-                                                modelAttribute="newUser">
-
+                                            <form:form method="post" action="/admin/smart-outlet/update"
+                                                modelAttribute="newSmartOutlet">
+                                                <form:input type="hidden" path="id" />
                                                 <div class="mb-3" style="display: none;">
                                                     <label class="form-label">Id:</label>
                                                     <form:input type="text" class="form-control" path="id" />
