@@ -24,6 +24,8 @@ public class AggregatedLogService {
         this.aggregatedLogRepository = aggregatedLogRepository;
     }
 
+    
+
    
     public Map<String, AggregatedLog> computeAggregatedEnergyPerDay() {
         // 1. Lấy danh sách AggregatedLog từ DB
@@ -39,7 +41,7 @@ public class AggregatedLogService {
         return aggregatedData;
     }
 
-    
+    // Ham tính avg 
     private float computeAverageEnergyConsumption(List<Float> readings) {
         float totalEnergy = 0;
         for (float reading : readings) {
@@ -50,7 +52,7 @@ public class AggregatedLogService {
         return avgEnergy;
     }
 
-    
+    // Gom nhóm theo ngày và tính min, max, avg
     private Map<String, AggregatedLog> computeAggregatedEnergyPerDay(List<AggregatedLog> readings) {
         Map<String, List<Float>> dailyReadings = new HashMap<>();
 
