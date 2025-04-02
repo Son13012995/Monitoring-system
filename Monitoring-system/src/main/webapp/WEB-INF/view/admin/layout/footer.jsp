@@ -4,10 +4,10 @@
 <footer class="py-4 bg-light mt-auto">
     <div class="container-fluid px-4">
         <div class="d-flex align-items-center justify-content-between small">
-            <div class="text-muted">Copyright &copy; Nguyen</div>
+            <div class="text-muted">Copyright &copy; Monitor-team</div>
             <div>
 
-                <a href="https://www.facebook.com/nguyen.uc.nguyen.259736" target="_blank">facebook</a>
+                <a href="https://github.com/Son13012995/Monitoring-system" target="_blank">github</a>
             </div>
         </div>
     </div>

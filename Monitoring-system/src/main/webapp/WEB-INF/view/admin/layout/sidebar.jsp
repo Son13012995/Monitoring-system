@@ -19,9 +19,9 @@
 
             </div>
         </div>
-        <div class="sb-sidenav-footer">
+        <!-- <div class="sb-sidenav-footer">
             <div class="small">Logged in as:</div>
             Nguyen
-        </div>
+        </div> -->
     </nav>
 </div>
