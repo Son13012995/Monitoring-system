@@ -27,6 +27,10 @@ public class AggregatedLogService {
     public AggregatedLog save(AggregatedLog aggregatedLog) {
         return aggregatedLogRepository.save(aggregatedLog);
     }
+
+    public List<AggregatedLog> getAllAggregatedLogs(){
+        return aggregatedLogRepository.findAll();
+    }
    
     // Phương thức gốc lấy dữ liệu từ DB
     public Map<String, AggregatedLog> computeAggregatedEnergyPerDay() {
