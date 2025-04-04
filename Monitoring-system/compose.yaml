@@ -1,3 +1,6 @@
+version: "beta-1"
+name: "energy_monitoring"
+
 services:
   mysql:
     image: 'mysql:latest'
@@ -13,3 +16,16 @@ services:
       - '33060:33060'
     volumes:
       - ./init-scripts:/docker-entrypoint-initdb.d
+
+  mosquitto:
+    image: 'eclipse-mosquitto:latest'
+    container_name: 'mosquitto-mqtt'
+    hostname: 'mosquitto-mqtt'
+    volumes:
+      - type: bind
+        source: ./init-scripts/mosquitto/mosquitto.conf
+        target: /mosquitto/config/mosquitto.conf
+    ports:
+      - "1883:1883"
+    expose:
+      - "1883"
