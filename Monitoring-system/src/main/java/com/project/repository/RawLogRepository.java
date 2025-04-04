@@ -1,5 +1,7 @@
 package com.project.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -10,6 +12,11 @@ import com.project.model.RawLog;
 @Repository
 public interface RawLogRepository extends JpaRepository<RawLog, Integer> {
 
+    @SuppressWarnings("null")
+    @Override
+    public List<RawLog> findAll(); 
+        
+ 
     // Đếm số hàng
     @Query("SELECT COUNT(r) FROM RawLog r")
     long countAllRows();
