@@ -34,7 +34,7 @@ services:
 
   app:
     build: .
-    image: 'eams-build-1'
+    image: 'eams-build:beta-1'
     container_name: 'eams'
     environment:
       - 'SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/energy_management'
