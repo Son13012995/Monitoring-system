@@ -1,151 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
- <project version="4">
-   <component name="AutoImportSettings">
-     <option name="autoReloadType" value="SELECTIVE" />
-   </component>
-   <component name="ChangeListManager">
-     <list default="true" id="3bdd29bb-23ad-451b-9459-cbb5bf4cbf3f" name="Changes" comment="">
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/java/com/project/MonitoringSystemApplication.java" afterDir="false" />
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/java/com/project/config/WebMvcConfig.java" afterDir="false" />
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/java/com/project/controller/DashboardController.java" afterDir="false" />
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/java/com/project/model/AggregatedLog.java" afterDir="false" />
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/java/com/project/model/RawLog.java" afterDir="false" />
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/java/com/project/model/SmartOutlet.java" afterDir="false" />
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/java/com/project/repository/SmartOutletRepository.java" afterDir="false" />
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/webapp/WEB-INF/view/admin/dashboard/show.jsp" afterDir="false" />
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/webapp/WEB-INF/view/admin/hello.jsp" afterDir="false" />
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/webapp/WEB-INF/view/admin/layout/footer.jsp" afterDir="false" />
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/webapp/WEB-INF/view/admin/layout/header.jsp" afterDir="false" />
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/webapp/WEB-INF/view/admin/layout/sidebar.jsp" afterDir="false" />
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/webapp/WEB-INF/view/admin/smart-outlet/create.jsp" afterDir="false" />
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/webapp/WEB-INF/view/admin/smart-outlet/delete.jsp" afterDir="false" />
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/webapp/resources/css/demo.css" afterDir="false" />
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/webapp/resources/css/style.css" afterDir="false" />
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/webapp/resources/js/chart-area-demo.js" afterDir="false" />
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/webapp/resources/js/chart-bar-demo.js" afterDir="false" />
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/webapp/resources/js/chart-pie-demo.js" afterDir="false" />
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/webapp/resources/js/datatables-demo.js" afterDir="false" />
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/webapp/resources/js/datatables-simple-demo.js" afterDir="false" />
-       <change afterPath="$PROJECT_DIR$/Monitoring-system/src/main/webapp/resources/js/scripts.js" afterDir="false" />
-       <change beforePath="$PROJECT_DIR$/Monitoring-system/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Monitoring-system/pom.xml" afterDir="false" />
-       <change beforePath="$PROJECT_DIR$/Monitoring-system/src/main/java/com/project/Monitoring_system/MonitoringSystemApplication.java" beforeDir="false" />
-       <change beforePath="$PROJECT_DIR$/Monitoring-system/src/main/java/com/project/controller/DeviceController.java" beforeDir="false" />
-       <change beforePath="$PROJECT_DIR$/Monitoring-system/src/main/java/com/project/service/DeviceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monitoring-system/src/main/java/com/project/service/SmartOutletService.java" afterDir="false" />
-       <change beforePath="$PROJECT_DIR$/Monitoring-system/src/main/java/model/Device.java" beforeDir="false" />
-       <change beforePath="$PROJECT_DIR$/Monitoring-system/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Monitoring-system/src/main/resources/application.properties" afterDir="false" />
-       <change beforePath="$PROJECT_DIR$/Monitoring-system/src/main/resources/static/scirpt.txt" beforeDir="false" />
-       <change beforePath="$PROJECT_DIR$/Monitoring-system/src/main/resources/templates/index.html" beforeDir="false" />
-       <change beforePath="$PROJECT_DIR$/Monitoring-system/src/main/resources/templates/script.js" beforeDir="false" />
-       <change beforePath="$PROJECT_DIR$/Monitoring-system/src/main/resources/templates/styles.css" beforeDir="false" />
-     </list>
-     <option name="SHOW_DIALOG" value="false" />
-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
-     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-     <option name="LAST_RESOLUTION" value="IGNORE" />
-   </component>
-   <component name="FileTemplateManagerImpl">
-     <option name="RECENT_TEMPLATES">
-       <list>
-         <option value="Class" />
-       </list>
-     </option>
-   </component>
-   <component name="Git.Settings">
-     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-   </component>
-   <component name="ProjectColorInfo"><![CDATA[{
-   "associatedIndex": 2
- }]]></component>
-   <component name="ProjectId" id="2upyGZmRBEjQnghhMj5ra7ZQPXg" />
-   <component name="ProjectLevelVcsManager">
-     <ConfirmationsSetting value="2" id="Add" />
-   </component>
-   <component name="ProjectViewState">
-     <option name="hideEmptyMiddlePackages" value="true" />
-     <option name="showLibraryContents" value="true" />
-   </component>
-   <component name="PropertiesComponent"><![CDATA[{
-   "keyToString": {
-     "RequestMappingsPanelOrder0": "0",
-     "RequestMappingsPanelOrder1": "1",
-     "RequestMappingsPanelWidth0": "75",
-     "RequestMappingsPanelWidth1": "75",
-     "RunOnceActivity.ShowReadmeOnStart": "true",
-     "RunOnceActivity.git.unshallow": "true",
-     "Spring Boot.MonitoringSystemApplication (1).executor": "Run",
-     "git-widget-placeholder": "main",
-     "kotlin-language-version-configured": "true",
-     "last_opened_file_path": "D:/01-java-spring-laptopshop-starter",
-     "node.js.detected.package.eslint": "true",
-     "node.js.detected.package.tslint": "true",
-     "node.js.selected.package.eslint": "(autodetect)",
-     "node.js.selected.package.tslint": "(autodetect)",
-     "nodejs_package_manager_path": "npm",
-     "project.structure.last.edited": "Modules",
-     "project.structure.proportion": "0.15",
-     "project.structure.side.proportion": "0.2",
-     "vue.rearranger.settings.migration": "true"
-   }
- }]]></component>
-   <component name="RecentsManager">
-     <key name="MoveFile.RECENT_KEYS">
-       <recent name="D:\Monitoring-system\Monitoring-system\src\main\webapp\resources" />
-       <recent name="D:\Monitoring-system\Monitoring-system\src\main\resources\templates" />
-     </key>
-     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-       <recent name="com.project" />
-     </key>
-   </component>
-   <component name="RunManager" selected="Spring Boot.MonitoringSystemApplication (1)">
-     <configuration name="MonitoringSystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-       <module name="Monitoring-system" />
-       <option name="SPRING_BOOT_MAIN_CLASS" value="com.project.Monitoring_system.MonitoringSystemApplication" />
-       <method v="2">
-         <option name="Make" enabled="true" />
-       </method>
-     </configuration>
-     <configuration name="MonitoringSystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-       <module name="Monitoring-system" />
-       <option name="SPRING_BOOT_MAIN_CLASS" value="com.project.MonitoringSystemApplication" />
-       <extension name="coverage">
-         <pattern>
-           <option name="PATTERN" value="com.project.*" />
-           <option name="ENABLED" value="true" />
-         </pattern>
-       </extension>
-       <method v="2">
-         <option name="Make" enabled="true" />
-       </method>
-     </configuration>
-     <recent_temporary>
-       <list>
-         <item itemvalue="Spring Boot.MonitoringSystemApplication (1)" />
-       </list>
-     </recent_temporary>
-   </component>
-   <component name="SharedIndexes">
-     <attachedChunks>
-       <set>
-         <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
-         <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
-       </set>
-     </attachedChunks>
-   </component>
-   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-   <component name="TaskManager">
-     <task active="true" id="Default" summary="Default task">
-       <changelist id="3bdd29bb-23ad-451b-9459-cbb5bf4cbf3f" name="Changes" comment="" />
-       <created>1742959714477</created>
-       <option name="number" value="Default" />
-       <option name="presentableId" value="Default" />
-       <updated>1742959714477</updated>
-       <workItem from="1742959715724" duration="5542000" />
-     </task>
-     <servers />
-   </component>
-   <component name="TypeScriptGeneratedFilesManager">
-     <option name="version" value="3" />
-   </component>
- </project>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3bdd29bb-23ad-451b-9459-cbb5bf4cbf3f" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 2
+ }</component>
+  <component name="ProjectId" id="2upyGZmRBEjQnghhMj5ra7ZQPXg" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.MonitoringSystemApplication (1).executor": "Run",
+    "git-widget-placeholder": "wuynhdemo",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/Hoc/code/Monitoring-system/Monitoring-system",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Monitoring-system\Monitoring-system\src\main\webapp\resources" />
+      <recent name="D:\Monitoring-system\Monitoring-system\src\main\resources\templates" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.project" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MonitoringSystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="Monitoring-system" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.project.Monitoring_system.MonitoringSystemApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MonitoringSystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="Monitoring-system" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.project.MonitoringSystemApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3bdd29bb-23ad-451b-9459-cbb5bf4cbf3f" name="Changes" comment="" />
+      <created>1742959714477</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742959714477</updated>
+      <workItem from="1742959715724" duration="5542000" />
+      <workItem from="1743866453308" duration="30000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
