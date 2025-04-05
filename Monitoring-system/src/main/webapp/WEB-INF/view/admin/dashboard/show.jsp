@@ -30,7 +30,7 @@
                 <!-- Placeholder for cards (optional if used in future) -->
                 <!-- Example of row with cards -->
                 <!-- <div class="row">
-                    <div class="col-xl-3 col-md-6"> <!-- Placeholder for card -->
+                    <div class="col-xl-3 col-md-6"> < !-- Placeholder for card -->
                 <!-- Content here -->
                 <!-- </div> -->
                 <!-- </div> -->
@@ -60,28 +60,20 @@
                         <table id="datatablesSimple">
                             <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Today consumption</th>
-<%--                                <th>This month's consumption</th>--%>
-<%--                                <th>Largest</th>--%>
-<%--                                <th>Lowest</th>--%>
-
+                                <th>Outlet ID</th>
+                                <th>Outlet Name</th>
+                                <th>Average Consumption</th>
                             </tr>
                             </thead>
-                            <tfoot>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Today consumption</th>
-<%--                                <th>This month's consumption</th>--%>
-<%--                                <th>Largest</th>--%>
-<%--                                <th>Lowest</th>--%>
-                            </tr>
-                            </tfoot>
                             <tbody>
-                            <!-- Table body is currently empty -->
-                            <!-- Add rows dynamically when data is available -->
+                            <jsp:useBean id="data" scope="request" type="java.util.List"/>
+                            <c:forEach var="item" items="${data}">
+                                <tr>
+                                    <td>${item.outletId}</td>
+                                    <td>${item.outletName}</td>
+                                    <td>${item.averageConsumption}</td>
+                                </tr>
+                            </c:forEach>
                             </tbody>
                         </table>
                     </div>

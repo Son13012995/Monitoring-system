@@ -89,6 +89,4 @@ public class AggregatedLogController {
          return ResponseEntity.ok(aggregatedData);
      }
 
-
-
 }

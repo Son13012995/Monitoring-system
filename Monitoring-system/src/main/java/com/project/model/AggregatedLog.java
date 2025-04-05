@@ -1,20 +1,11 @@
 package com.project.model;
 
-
-
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
-
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonFormat;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "AggregatedLog")
@@ -38,13 +29,11 @@ public class AggregatedLog implements Serializable {
     @Column(name = "timestamp")
     private Date date;
 
-    @ManyToOne(fetch  = jakarta.persistence.FetchType.EAGER)
-    @JoinColumn(name = "outlet_id", referencedColumnName = "id")
-    private SmartOutlet outlet; // Quan hệ với SmartOutlet (nhiều AggregatedLog thuộc về một SmartOutlet)
+    // Quan hệ Many-to-Many với SmartOutlet
+    @ManyToMany(mappedBy = "aggregatedLogs")
+    private List<SmartOutlet> outlets = new ArrayList<>();
 
-    public AggregatedLog() {
-        super();
-    }
+    public AggregatedLog() {}
 
     public AggregatedLog(float minPower, float maxPower, float avgPower) {
         this.minPower = minPower;
@@ -52,10 +41,10 @@ public class AggregatedLog implements Serializable {
         this.avgPower = avgPower;
     }
 
+    // Getters và Setters
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -63,7 +52,6 @@ public class AggregatedLog implements Serializable {
     public float getMinPower() {
         return minPower;
     }
-
     public void setMinPower(float minPower) {
         this.minPower = minPower;
     }
@@ -71,7 +59,6 @@ public class AggregatedLog implements Serializable {
     public float getMaxPower() {
         return maxPower;
     }
-
     public void setMaxPower(float maxPower) {
         this.maxPower = maxPower;
     }
@@ -79,7 +66,6 @@ public class AggregatedLog implements Serializable {
     public float getAvgPower() {
         return avgPower;
     }
-
     public void setAvgPower(float avgPower) {
         this.avgPower = avgPower;
     }
@@ -87,17 +73,15 @@ public class AggregatedLog implements Serializable {
     public Date getDate() {
         return date;
     }
-
     public void setDate(Date date) {
         this.date = date;
     }
 
-    public SmartOutlet getOutlet() {
-        return outlet;
+    public List<SmartOutlet> getOutlets() {
+        return outlets;
     }
-
-    public void setOutlet(SmartOutlet outlet) {
-        this.outlet = outlet;
+    public void setOutlets(List<SmartOutlet> outlets) {
+        this.outlets = outlets;
     }
 
     @Override
@@ -108,7 +92,6 @@ public class AggregatedLog implements Serializable {
                 ", maxPower=" + maxPower +
                 ", avgPower=" + avgPower +
                 ", date=" + date +
-                ", outlet=" + (outlet != null ? outlet.getId() : "N/A") +
                 '}';
     }
 }
