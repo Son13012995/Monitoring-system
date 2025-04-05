@@ -1,10 +1,47 @@
+version: "1.0"
+name: "energy_monitoring"
+
 services:
   mysql:
     image: 'mysql:latest'
+    container_name: 'mysql'
+    restart: always
     environment:
-      - 'MYSQL_DATABASE=mydatabase'
+      - 'MYSQL_DATABASE=energy_management'
       - 'MYSQL_PASSWORD=secret'
       - 'MYSQL_ROOT_PASSWORD=verysecret'
       - 'MYSQL_USER=myuser'
     ports:
-      - '3306'
+      - '3306:3306'
+    volumes:
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mosquitto:
+    image: 'eclipse-mosquitto:latest'
+    container_name: 'mosquitto-mqtt'
+    hostname: 'mosquitto-mqtt'
+    volumes:
+      - type: bind
+        source: ./init-scripts/mosquitto/mosquitto.conf
+        target: /mosquitto/config/mosquitto.conf
+    ports:
+      - "1883:1883"
+
+  app:
+    build: .
+    image: 'eams-build:beta-1'
+    container_name: 'eams'
+    environment:
+      - 'SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/energy_management'
+      - 'SPRING_DATASOURCE_USERNAME=root'
+      - 'SPRING_DATASOURCE_PASSWORD=verysecret'
+    ports:
+      - "2563:2563"
+    depends_on:
+      mysql:
+        condition: service_healthy
