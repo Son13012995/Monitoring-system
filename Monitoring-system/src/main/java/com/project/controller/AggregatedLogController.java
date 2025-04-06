@@ -60,8 +60,9 @@ public class AggregatedLogController {
 
 
     return new ResponseEntity<>(resultLast,HttpStatus.OK);
-    } // convert to AggregatedLog sang dto để chuẩn hóa dữ liệu 
-
+ } // convert to AggregatedLog sang dto để chuẩn hóa dữ liệu 
+    
+    
 
 
     @PostMapping("/compute-per-day")
@@ -87,7 +88,5 @@ public class AggregatedLogController {
          Map<String, AggregatedLog> aggregatedData = aggregatedLogService.computeAggregatedEnergyPerDayFromInput(logs);
          return ResponseEntity.ok(aggregatedData);
      }
-
-
 
 }

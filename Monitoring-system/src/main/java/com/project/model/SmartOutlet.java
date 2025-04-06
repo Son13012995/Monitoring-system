@@ -1,17 +1,9 @@
 package com.project.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
-
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "SmartOutlet")
@@ -25,35 +17,36 @@ public class SmartOutlet implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
-    // Quan hệ 1-N với AggregatedLog
-    @OneToMany(mappedBy = "outlet", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<AggregatedLog> aggregatedLogs;
+    // Quan hệ Many-to-Many với AggregatedLog
+    @ManyToMany
+    @JoinTable(
+            name = "smart_outlet_aggregated_log",
+            joinColumns = @JoinColumn(name = "outlet_id"),
+            inverseJoinColumns = @JoinColumn(name = "log_id")
+    )
+    private List<AggregatedLog> aggregatedLogs = new ArrayList<>();
 
-    // Quan hệ 1-N với RawLog
+    // Quan hệ 1-N với RawLog (giữ nguyên)
     @OneToMany(mappedBy = "outlet", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<RawLog> rawLogs;
 
-    public SmartOutlet() {
-        super();
-    }
+    public SmartOutlet() {}
 
     public SmartOutlet(String name) {
         this.name = name;
     }
 
-    // Getter / Setter cho các trường
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    // Getters và Setters
     public int getId() {
         return id;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -61,7 +54,6 @@ public class SmartOutlet implements Serializable {
     public List<AggregatedLog> getAggregatedLogs() {
         return aggregatedLogs;
     }
-
     public void setAggregatedLogs(List<AggregatedLog> aggregatedLogs) {
         this.aggregatedLogs = aggregatedLogs;
     }
@@ -69,7 +61,6 @@ public class SmartOutlet implements Serializable {
     public List<RawLog> getRawLogs() {
         return rawLogs;
     }
-
     public void setRawLogs(List<RawLog> rawLogs) {
         this.rawLogs = rawLogs;
     }

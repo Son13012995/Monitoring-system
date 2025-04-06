@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Calendar;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +33,7 @@ public class AggregatedLogService {
     public List<AggregatedLog> getAllAggregatedLogs(){
         return aggregatedLogRepository.findAll();
     }
-   
+
     // Phương thức gốc lấy dữ liệu từ DB
     public Map<String, AggregatedLog> computeAggregatedEnergyPerDay() {
         List<AggregatedLog> logs = aggregatedLogRepository.findAll();
@@ -51,8 +53,7 @@ public class AggregatedLogService {
         Map<String, List<Float>> dailyReadings = new HashMap<>();
 
         for (AggregatedLog entry : readings) {
-            // Ở đây bạn có thể định dạng lại date theo ý muốn (vd: chỉ lấy ngày)
-            // Ví dụ: dùng entry.getDate().toString() hoặc format theo SimpleDateFormat
+            // Sử dụng toString() của Date để định danh ngày (có thể thay bằng định dạng khác nếu cần)
             String dateKey = entry.getDate().toString();
             dailyReadings.putIfAbsent(dateKey, new ArrayList<>());
             dailyReadings.get(dateKey).add(entry.getAvgPower());
@@ -103,4 +104,38 @@ public class AggregatedLogService {
         aggregatedLog.setAvgPower(avgPower);
         return aggregatedLog;
     }
+
+    // ---------------- PHẦN BỔ SUNG MỚI ----------------
+    // Tính trung bình năng lượng tiêu thụ của một outlet trong một ngày cụ thể.
+    // Lưu ý: Phương thức này sử dụng danh sách AggregatedLog từ SmartOutlet (quan hệ Many-to-Many)
+    // và không thay đổi phần xử lý gốc của AggregatedLogService.
+    public float calculateDailyAverageForOutlet(com.project.model.SmartOutlet outlet, Date date) {
+        List<com.project.model.AggregatedLog> logs = outlet.getAggregatedLogs();
+        List<com.project.model.AggregatedLog> logsOfDay = new ArrayList<>();
+        for (com.project.model.AggregatedLog log : logs) {
+            if (isSameDay(log.getDate(), date)) {
+                logsOfDay.add(log);
+            }
+        }
+        if (logsOfDay.isEmpty()) {
+            return 0;
+        }
+        float sum = 0;
+        for (com.project.model.AggregatedLog log : logsOfDay) {
+            sum += log.getAvgPower();
+        }
+        return sum / logsOfDay.size();
+    }
+
+    // Hàm so sánh 2 ngày có cùng ngày không (so sánh theo năm và ngày trong năm)
+    private boolean isSameDay(Date d1, Date d2) {
+        Calendar c1 = Calendar.getInstance();
+        Calendar c2 = Calendar.getInstance();
+        c1.setTime(d1);
+        c2.setTime(d2);
+        return c1.get(Calendar.YEAR) == c2.get(Calendar.YEAR) &&
+                c1.get(Calendar.DAY_OF_YEAR) == c2.get(Calendar.DAY_OF_YEAR);
+    }
+
+    // ----------------------------------------------------
 }

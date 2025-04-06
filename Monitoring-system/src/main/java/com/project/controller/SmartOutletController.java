@@ -1,88 +1,100 @@
 package com.project.controller;
 
+import java.util.Date;
 import java.util.List;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import com.project.dto.OutletAvgDto;
 import com.project.model.SmartOutlet;
+import com.project.service.AggregatedLogService;
 import com.project.service.SmartOutletService;
 
 @Controller
+@RequestMapping("/admin/smart-outlet")
 public class SmartOutletController {
 
     @Autowired
-    private final SmartOutletService smartOutletService; // Calling service to fetch smart outlet data
+    private SmartOutletService smartOutletService;
 
-    public SmartOutletController(SmartOutletService smartOutletService) {
-        this.smartOutletService = smartOutletService;
-    }
-    
-    @RequestMapping("/admin/smart-outlet")
+    @Autowired
+    private AggregatedLogService aggregatedLogService;
+
+    @GetMapping("")
     public String getSmartOutletPage(Model model) {
-        List<SmartOutlet> smartOutlets = this.smartOutletService.findAllSmartOutlet();
+        List<SmartOutlet> smartOutlets = smartOutletService.findAllSmartOutlet();
         model.addAttribute("smartOutlets", smartOutlets);
         return "admin/smart-outlet/show";
     }
 
-    @RequestMapping("/admin/smart-outlet/{id}")
+    @GetMapping("/{id}")
     public String getSmartOutletDetailPage(Model model, @PathVariable Integer id) {
-        SmartOutlet smartOutlet = this.smartOutletService.getSmartOutletById(id);
+        SmartOutlet smartOutlet = smartOutletService.getSmartOutletById(id);
         model.addAttribute("smartOutlet", smartOutlet);
         model.addAttribute("id", id);
         return "admin/smart-outlet/detail";
     }
 
-    @GetMapping("/admin/smart-outlet/create") // GET
+    @GetMapping("/create")
     public String getCreateSmartOutletPage(Model model) {
         model.addAttribute("newSmartOutlet", new SmartOutlet());
         return "admin/smart-outlet/create";
     }
 
-    @PostMapping(value = "/admin/smart-outlet/create")
+    @PostMapping("/create")
     public String createSmartOutletPage(Model model,
                                         @ModelAttribute("newSmartOutlet") SmartOutlet smartOutlet) {
-
         // Save new SmartOutlet
-        this.smartOutletService.handleSaveSmartOutlet(smartOutlet);
+        smartOutletService.handleSaveSmartOutlet(smartOutlet);
         return "redirect:/admin/smart-outlet";
     }
 
-    @RequestMapping("/admin/smart-outlet/update/{id}") // GET
+    @GetMapping("/update/{id}")
     public String getUpdateSmartOutletPage(Model model, @PathVariable Integer id) {
-        SmartOutlet currentSmartOutlet = this.smartOutletService.getSmartOutletById(id);
+        SmartOutlet currentSmartOutlet = smartOutletService.getSmartOutletById(id);
         model.addAttribute("newSmartOutlet", currentSmartOutlet);
         return "admin/smart-outlet/update";
     }
 
-    @PostMapping("/admin/smart-outlet/update")
+    @PostMapping("/update")
     public String postUpdateSmartOutlet(Model model, @ModelAttribute("newSmartOutlet") SmartOutlet smartOutlet) {
-        SmartOutlet currentSmartOutlet = this.smartOutletService.getSmartOutletById(smartOutlet.getId());
+        SmartOutlet currentSmartOutlet = smartOutletService.getSmartOutletById(smartOutlet.getId());
         if (currentSmartOutlet != null) {
             currentSmartOutlet.setName(smartOutlet.getName());
-            this.smartOutletService.handleSaveSmartOutlet(currentSmartOutlet);
+            smartOutletService.handleSaveSmartOutlet(currentSmartOutlet);
         }
         return "redirect:/admin/smart-outlet";
     }
 
-    @GetMapping("/admin/smart-outlet/delete/{id}")
+    @GetMapping("/delete/{id}")
     public String getDeleteSmartOutletPage(Model model, @PathVariable long id) {
         SmartOutlet outlet = new SmartOutlet();
-        outlet.setId((int) id); // hoặc chuyển đổi tương ứng nếu id là Integer
+        outlet.setId((int) id); // hoặc chuyển đổi nếu cần
         model.addAttribute("newSmartOutlet", outlet);
         return "admin/smart-outlet/delete";
-}
+    }
 
-
-    @PostMapping("/admin/smart-outlet/delete")
+    @PostMapping("/delete")
     public String postDeleteSmartOutlet(Model model, @ModelAttribute("newSmartOutlet") SmartOutlet smartOutlet) {
-        this.smartOutletService.deleteSmartOutletById(smartOutlet.getId());
+        smartOutletService.deleteSmartOutletById(smartOutlet.getId());
         return "redirect:/admin/smart-outlet";
+    }
+
+    // Endpoint mới để hiển thị bảng Outlet với năng lượng trung bình tiêu thụ trong ngày
+    @GetMapping("/average")
+    public String showOutletAverageConsumption(Model model) {
+        Date today = new Date(); // Lấy ngày hiện tại (có thể thay đổi theo yêu cầu)
+        List<SmartOutlet> outlets = smartOutletService.findAllSmartOutlet();
+        List<OutletAvgDto> data = new ArrayList<>();
+        for (SmartOutlet outlet : outlets) {
+            float avg = aggregatedLogService.calculateDailyAverageForOutlet(outlet, today);
+            data.add(new OutletAvgDto(outlet.getId(), outlet.getName(), avg));
+        }
+        model.addAttribute("data", data);
+        return "admin/smart-outlet/average";
     }
 }

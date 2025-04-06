@@ -1,15 +1,9 @@
 package com.project.service;
 
-
-
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-
 import com.project.model.SmartOutlet;
 import com.project.repository.SmartOutletRepository;
-
-
 
 @Service
 public class SmartOutletService {
@@ -36,7 +30,5 @@ public class SmartOutletService {
         SmartOutlet smartOutlet1 = this.smartOutletRepository.save(smartOutlet);
         System.out.println("SmartOutlet saved successfully");
         return smartOutlet1;
-
     }
-
 }
