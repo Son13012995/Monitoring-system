@@ -126,6 +126,35 @@ public class AggregatedLogService {
         return sum / logsOfDay.size();
     }
 
+    public float calculateMonthlyAverageForOutlet(com.project.model.SmartOutlet outlet, Date date) {
+        List<AggregatedLog> logs = outlet.getAggregatedLogs();
+        List<AggregatedLog> logsOfMonth = new ArrayList<>();
+        Calendar c1 = Calendar.getInstance();
+        c1.setTime(date);
+        int year = c1.get(Calendar.YEAR);
+        int month = c1.get(Calendar.MONTH);
+
+        for (AggregatedLog log : logs) {
+            Calendar c2 = Calendar.getInstance();
+            c2.setTime(log.getDate());
+            if (c2.get(Calendar.YEAR) == year && c2.get(Calendar.MONTH) == month) {
+                logsOfMonth.add(log);
+            }
+        }
+
+        if (logsOfMonth.isEmpty()) {
+            return 0;
+        }
+
+        float sum = 0;
+        for (AggregatedLog log : logsOfMonth) {
+            sum += log.getAvgPower();
+        }
+
+        return sum / logsOfMonth.size();
+    }
+
+
     // Hàm so sánh 2 ngày có cùng ngày không (so sánh theo năm và ngày trong năm)
     private boolean isSameDay(Date d1, Date d2) {
         Calendar c1 = Calendar.getInstance();
@@ -135,5 +164,7 @@ public class AggregatedLogService {
         return c1.get(Calendar.YEAR) == c2.get(Calendar.YEAR) &&
                 c1.get(Calendar.DAY_OF_YEAR) == c2.get(Calendar.DAY_OF_YEAR);
     }
+
+
 
 }

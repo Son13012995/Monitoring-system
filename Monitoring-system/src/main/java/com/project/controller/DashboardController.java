@@ -25,18 +25,20 @@ public class DashboardController {
     public String getHome() {
         return "admin/hello"; // Đảm bảo file /WEB-INF/view/admin/hello.jsp tồn tại
     }
-    
+
     @GetMapping("/admin")
     public String getDashboard(Model model) {
-        Date today = new Date(); // Lấy ngày hiện tại (có thể thay đổi theo yêu cầu)
+        Date today = new Date();
         List<SmartOutlet> outlets = smartOutletService.findAllSmartOutlet();
         List<OutletAvgDto> data = new ArrayList<>();
         for (SmartOutlet outlet : outlets) {
             float todayAvg = aggregatedLogService.calculateDailyAverageForOutlet(outlet, today);
-            data.add(new OutletAvgDto(outlet.getId(), outlet.getName(), todayAvg));
+            float monthAvg = aggregatedLogService.calculateMonthlyAverageForOutlet(outlet, today); // ✅ đổi tên
+            data.add(new OutletAvgDto(outlet.getId(), outlet.getName(), todayAvg, monthAvg));
         }
         model.addAttribute("data", data);
-        return "admin/dashboard/show"; // Trả về /WEB-INF/view/admin/dashboard/show.jsp
+        return "admin/dashboard/show";
     }
+
     // Endpoint mới để hiển thị bảng Outlet với năng lượng trung bình tiêu thụ trong ngày
 }

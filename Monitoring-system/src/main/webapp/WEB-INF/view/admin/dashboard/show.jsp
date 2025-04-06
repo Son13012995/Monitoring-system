@@ -63,6 +63,7 @@
                                 <th>Outlet ID</th>
                                 <th>Outlet Name</th>
                                 <th>Today Average Consumption</th>
+                                <th>This Month Average Consumption</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -71,6 +72,7 @@
                                     <td>${item.outletId}</td>
                                     <td>${item.outletName}</td>
                                     <td>${item.todayAverageConsumption}</td>
+                                    <td>${item.monthAverageConsumption}</td>
                                 </tr>
                             </c:forEach>
                             </tbody>

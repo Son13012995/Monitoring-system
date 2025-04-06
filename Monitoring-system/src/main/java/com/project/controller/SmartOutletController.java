@@ -84,5 +84,4 @@ public class SmartOutletController {
         return "redirect:/admin/smart-outlet";
     }
 
-
 }
