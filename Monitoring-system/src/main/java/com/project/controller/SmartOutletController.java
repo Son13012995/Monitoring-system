@@ -84,17 +84,5 @@ public class SmartOutletController {
         return "redirect:/admin/smart-outlet";
     }
 
-    // Endpoint mới để hiển thị bảng Outlet với năng lượng trung bình tiêu thụ trong ngày
-    @GetMapping("/average")
-    public String showOutletAverageConsumption(Model model) {
-        Date today = new Date(); // Lấy ngày hiện tại (có thể thay đổi theo yêu cầu)
-        List<SmartOutlet> outlets = smartOutletService.findAllSmartOutlet();
-        List<OutletAvgDto> data = new ArrayList<>();
-        for (SmartOutlet outlet : outlets) {
-            float avg = aggregatedLogService.calculateDailyAverageForOutlet(outlet, today);
-            data.add(new OutletAvgDto(outlet.getId(), outlet.getName(), avg));
-        }
-        model.addAttribute("data", data);
-        return "admin/dashboard/show";
-    }
+
 }
