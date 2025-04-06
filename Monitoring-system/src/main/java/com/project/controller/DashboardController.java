@@ -32,8 +32,8 @@ public class DashboardController {
         List<SmartOutlet> outlets = smartOutletService.findAllSmartOutlet();
         List<OutletAvgDto> data = new ArrayList<>();
         for (SmartOutlet outlet : outlets) {
-            float avg = aggregatedLogService.calculateDailyAverageForOutlet(outlet, today);
-            data.add(new OutletAvgDto(outlet.getId(), outlet.getName(), avg));
+            float todayAvg = aggregatedLogService.calculateDailyAverageForOutlet(outlet, today);
+            data.add(new OutletAvgDto(outlet.getId(), outlet.getName(), todayAvg));
         }
         model.addAttribute("data", data);
         return "admin/dashboard/show"; // Trả về /WEB-INF/view/admin/dashboard/show.jsp

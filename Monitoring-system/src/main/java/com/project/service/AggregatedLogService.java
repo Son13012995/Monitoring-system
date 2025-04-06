@@ -107,7 +107,7 @@ public class AggregatedLogService {
 
     // Tính trung bình năng lượng tiêu thụ của một outlet trong một ngày cụ thể.
     // Lưu ý: Phương thức này sử dụng danh sách AggregatedLog từ SmartOutlet (quan hệ Many-to-Many)
-    // và không thay đổi phần xử lý gốc của AggregatedLogService.
+
     public float calculateDailyAverageForOutlet(com.project.model.SmartOutlet outlet, Date date) {
         List<com.project.model.AggregatedLog> logs = outlet.getAggregatedLogs();
         List<com.project.model.AggregatedLog> logsOfDay = new ArrayList<>();

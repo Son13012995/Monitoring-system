@@ -3,14 +3,14 @@ package com.project.dto;
 public class OutletAvgDto {
     private int outletId;
     private String outletName;
-    private float averageConsumption;
+    private float todayAverageConsumption;
 
     public OutletAvgDto() {}
 
-    public OutletAvgDto(int outletId, String outletName, float averageConsumption) {
+    public OutletAvgDto(int outletId, String outletName, float todayAverageConsumption) {
         this.outletId = outletId;
         this.outletName = outletName;
-        this.averageConsumption = averageConsumption;
+        this.todayAverageConsumption = todayAverageConsumption;
     }
 
     public int getOutletId() {
@@ -27,10 +27,10 @@ public class OutletAvgDto {
         this.outletName = outletName;
     }
 
-    public float getAverageConsumption() {
-        return averageConsumption;
+    public float getTodayAverageConsumption() {
+        return todayAverageConsumption;
     }
-    public void setAverageConsumption(float averageConsumption) {
-        this.averageConsumption = averageConsumption;
+    public void setTodayAverageConsumption(float todayAverageConsumption) {
+        this.todayAverageConsumption = todayAverageConsumption;
     }
 }

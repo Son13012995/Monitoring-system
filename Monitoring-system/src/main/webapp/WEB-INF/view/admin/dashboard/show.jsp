@@ -62,7 +62,7 @@
                             <tr>
                                 <th>Outlet ID</th>
                                 <th>Outlet Name</th>
-                                <th>Average Consumption</th>
+                                <th>Today Average Consumption</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -70,7 +70,7 @@
                                 <tr>
                                     <td>${item.outletId}</td>
                                     <td>${item.outletName}</td>
-                                    <td>${item.averageConsumption}</td>
+                                    <td>${item.todayAverageConsumption}</td>
                                 </tr>
                             </c:forEach>
                             </tbody>
