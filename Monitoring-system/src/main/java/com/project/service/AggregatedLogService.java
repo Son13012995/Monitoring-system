@@ -105,7 +105,6 @@ public class AggregatedLogService {
         return aggregatedLog;
     }
 
-    // ---------------- PHẦN BỔ SUNG MỚI ----------------
     // Tính trung bình năng lượng tiêu thụ của một outlet trong một ngày cụ thể.
     // Lưu ý: Phương thức này sử dụng danh sách AggregatedLog từ SmartOutlet (quan hệ Many-to-Many)
     // và không thay đổi phần xử lý gốc của AggregatedLogService.
@@ -137,5 +136,4 @@ public class AggregatedLogService {
                 c1.get(Calendar.DAY_OF_YEAR) == c2.get(Calendar.DAY_OF_YEAR);
     }
 
-    // ----------------------------------------------------
 }

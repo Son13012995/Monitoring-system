@@ -66,7 +66,6 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <jsp:useBean id="data" scope="request" type="java.util.List"/>
                             <c:forEach var="item" items="${data}">
                                 <tr>
                                     <td>${item.outletId}</td>

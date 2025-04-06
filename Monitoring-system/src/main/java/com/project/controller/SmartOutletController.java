@@ -95,6 +95,6 @@ public class SmartOutletController {
             data.add(new OutletAvgDto(outlet.getId(), outlet.getName(), avg));
         }
         model.addAttribute("data", data);
-        return "admin/smart-outlet/average";
+        return "admin/dashboard/show";
     }
 }
