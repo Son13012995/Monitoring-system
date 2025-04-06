@@ -4,7 +4,7 @@ public class OutletAvgDto {
     private int outletId;
     private String outletName;
     private float todayAverageConsumption;
-    private float monthAverageConsumption; // ✅ đổi từ "year" sang "month"
+    private float monthAverageConsumption;
 
     public OutletAvgDto() {}
 

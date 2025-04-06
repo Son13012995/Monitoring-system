@@ -36,25 +36,25 @@
                 <!-- </div> -->
 
                 <!-- Bar chart section -->
-                <div class="row">
-                    <div class="col-xl-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-chart-bar me-1"></i>
-                                Bar Chart Example
-                            </div>
-                            <div class="card-body">
-                                <canvas id="myBarChart" width="100%" height="40"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<%--                <div class="row">--%>
+<%--                    <div class="col-xl-6">--%>
+<%--                        <div class="card mb-4">--%>
+<%--                            <div class="card-header">--%>
+<%--                                <i class="fas fa-chart-bar me-1"></i>--%>
+<%--                                Bar Chart Example--%>
+<%--                            </div>--%>
+<%--                            <div class="card-body">--%>
+<%--                                <canvas id="myBarChart" width="100%" height="40"></canvas>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
 
                 <!-- DataTable section -->
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
-                        DataTable Example
+                        Outlet
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">

@@ -39,6 +39,5 @@ public class DashboardController {
         model.addAttribute("data", data);
         return "admin/dashboard/show";
     }
-
     // Endpoint mới để hiển thị bảng Outlet với năng lượng trung bình tiêu thụ trong ngày
 }
