@@ -1,6 +1,8 @@
 package com.project.service;
 
 import java.util.List;
+
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import com.project.model.SmartOutlet;
 import com.project.repository.SmartOutletRepository;
@@ -21,7 +23,7 @@ public class SmartOutletService {
     public SmartOutlet getSmartOutletById(int id) {
         return smartOutletRepository.findById(id);
     }
-
+    @Transactional
     public List<SmartOutlet> findAllSmartOutlet() {
         return smartOutletRepository.findAll();
     }

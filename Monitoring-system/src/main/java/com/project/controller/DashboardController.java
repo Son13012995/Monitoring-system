@@ -36,9 +36,7 @@ public class DashboardController {
             data.add(new OutletAvgDto(outlet.getId(), outlet.getName(), avg));
         }
         model.addAttribute("data", data);
-
         return "admin/dashboard/show"; // Trả về /WEB-INF/view/admin/dashboard/show.jsp
     }
     // Endpoint mới để hiển thị bảng Outlet với năng lượng trung bình tiêu thụ trong ngày
-
 }

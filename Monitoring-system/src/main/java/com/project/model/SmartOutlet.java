@@ -18,7 +18,7 @@ public class SmartOutlet implements Serializable {
     private String name;
 
     // Quan hệ Many-to-Many với AggregatedLog
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "smart_outlet_aggregated_log",
             joinColumns = @JoinColumn(name = "outlet_id"),
@@ -26,7 +26,7 @@ public class SmartOutlet implements Serializable {
     )
     private List<AggregatedLog> aggregatedLogs = new ArrayList<>();
 
-    // Quan hệ 1-N với RawLog (giữ nguyên)
+    // Quan hệ 1-N với RawLog
     @OneToMany(mappedBy = "outlet", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<RawLog> rawLogs;
 
