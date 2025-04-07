@@ -31,3 +31,12 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Packaging branch
+.github
+.mvn
+init-scripts
+src
+target
+pom.xml
+Dockerfile
