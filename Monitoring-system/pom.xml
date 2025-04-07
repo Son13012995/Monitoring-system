@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.project</groupId>
-	<artifactId>Monitoring-system</artifactId>
+	<artifactId>eams</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Monitoring-system</name>
+	<name>eams</name>
 	<description>A System that monitor the energy consumption of households devices</description>
 	<url/>
 	<licenses>
@@ -77,6 +77,15 @@
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/webapp</directory>
+				<targetPath>META-INF/resources</targetPath>
+				<includes>
+					<include>**/*.jsp</include>
+				</includes>
+			</resource>
+		</resources>
     	<plugins>
         	<plugin>
             	<groupId>org.springframework.boot</groupId>
