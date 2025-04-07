@@ -2,6 +2,12 @@ version: "1.0"
 name: "energy_monitoring"
 
 services:
+  # debugging container
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
   mysql:
     image: 'mysql:latest'
     container_name: 'mysql'
@@ -34,7 +40,7 @@ services:
 
   app:
     build: .
-    image: 'eams-build:beta-1'
+    image: 'eams:latest'
     container_name: 'eams'
     environment:
       - 'SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/energy_management'
