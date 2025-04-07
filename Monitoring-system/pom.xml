@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.project</groupId>
 	<artifactId>eams</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0-release</version>
 	<name>eams</name>
 	<description>A System that monitor the energy consumption of households devices</description>
 	<url/>
