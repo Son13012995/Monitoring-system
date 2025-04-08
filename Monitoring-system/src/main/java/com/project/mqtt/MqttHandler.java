@@ -17,7 +17,6 @@ import org.eclipse.paho.client.mqttv3.*;
  * });
  * }</pre>
  *
- * @author
  */
 public class MqttHandler {
 
