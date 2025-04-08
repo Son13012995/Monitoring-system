@@ -53,11 +53,6 @@ CREATE INDEX idx_smartoutlet_aggregated_log_outlet ON smart_outlet_aggregated_lo
 CREATE INDEX idx_smartoutlet_aggregated_log_log ON smart_outlet_aggregated_log(log_id);
 
 -- =======================================
--- 🚀 Seed dữ liệu test
--- =======================================
-INSERT INTO smart_outlet (id, name) VALUES (1, 'Outlet A'), (2, 'Outlet B');
-
--- =======================================
 -- 🔄 Trigger nén theo outlet_id mỗi 60 bản ghi
 --      + Tự động insert vào bảng smart_outlet_aggregated_log
 -- =======================================
@@ -119,12 +114,6 @@ END;
 //
 
 DELIMITER ;
-
--- =======================================
--- 🧪 Test Trigger và Nén + Liên kết tự động
--- =======================================
-CALL insert_60_rawlog(1);
-CALL insert_60_rawlog(2);
 
 -- Xem dữ liệu raw
 SELECT * FROM raw_log;
