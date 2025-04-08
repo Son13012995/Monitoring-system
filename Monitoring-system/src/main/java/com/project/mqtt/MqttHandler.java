@@ -21,7 +21,7 @@ import org.eclipse.paho.client.mqttv3.*;
 public class MqttHandler {
 
     /** Singleton instance */
-    private static MqttHandler instance;
+    private static volatile MqttHandler instance;
 
     /** MQTT broker URL, e.g., tcp://localhost:1883 */
     private final String brokerUrl;
@@ -70,8 +70,8 @@ public class MqttHandler {
         if (mqttClient == null || !mqttClient.isConnected()) {
             mqttClient = new MqttClient(brokerUrl, clientId);
             MqttConnectOptions options = new MqttConnectOptions();
-            options.setAutomaticReconnect(true);
-            options.setCleanSession(true);
+            options.setAutomaticReconnect(false);
+            options.setCleanSession(false);
             mqttClient.connect(options);
             System.out.println("[MQTT] Connected to " + brokerUrl);
         }

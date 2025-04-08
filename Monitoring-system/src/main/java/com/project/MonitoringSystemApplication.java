@@ -14,6 +14,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MonitoringSystemApplication {
 
     public static void main(String[] args) {
+        SpringApplication.run(MonitoringSystemApplication.class, args);
+
         String brokerUrl = "tcp://127.0.0.1:1883";
         String envUrl = System.getenv("MQTT_BROKER_URL");
         if (envUrl != null && !envUrl.isEmpty()) {
@@ -25,10 +27,10 @@ public class MonitoringSystemApplication {
         try {
             mqtt.connect();
 
-            mqtt.listenToTopic("iot/smart_outlets/+/data", new OnReceiveMessageCallback() {
+            mqtt.listenToTopic("iot/smart_outlet/+/data", new OnReceiveMessageCallback() {
                 @Override
                 protected void onReceive(String topic, String payload) {
-                    System.out.println("Received topic: " + topic + " payload: " + payload); // Should replace with adding log
+//                    System.out.println("Received topic: " + topic + " payload: " + payload); // Should replace with adding log
 //                    Payload is a jsonObject
 //                    {
 //                        "outlet_id": string,
@@ -36,15 +38,12 @@ public class MonitoringSystemApplication {
 //                        "timestamp": string
 //                    }
                     // Implement day du lieu tu payload vao log table
-
                 }
             });
         } catch (MqttException e) {
             System.out.println("[MQTT] MqttException: " + e.getMessage());
             e.printStackTrace();
         }
-
-        SpringApplication.run(MonitoringSystemApplication.class, args);
     }
 
 }
