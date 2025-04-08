@@ -9,8 +9,8 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.project</groupId>
-	<artifactId>Monitoring-system</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>eams</artifactId>
+	<version>1.0.0-release</version>
 	<name>Monitoring-system</name>
 	<description>A System that monitor the energy consumption of households devices</description>
 	<url/>
@@ -73,7 +73,12 @@
 			<groupId>org.glassfish.web</groupId>
 			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
 		</dependency>
-
+		<!-- https://mvnrepository.com/artifact/org.eclipse.paho/org.eclipse.paho.client.mqttv3 -->
+		<dependency>
+			<groupId>org.eclipse.paho</groupId>
+			<artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+			<version>1.2.5</version>
+		</dependency>
 	</dependencies>
 
 	<build>
