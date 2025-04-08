@@ -32,9 +32,7 @@ services:
     container_name: 'mosquitto-mqtt'
     hostname: 'mosquitto-mqtt'
     volumes:
-      - type: bind
-        source: ./init-scripts/mosquitto/mosquitto.conf
-        target: /mosquitto/config/mosquitto.conf
+      - ./init-scripts/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
     ports:
       - "1883:1883"
 
