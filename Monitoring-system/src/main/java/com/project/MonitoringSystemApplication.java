@@ -29,6 +29,14 @@ public class MonitoringSystemApplication {
                 @Override
                 protected void onReceive(String topic, String payload) {
                     System.out.println("Received topic: " + topic + " payload: " + payload); // Should replace with adding log
+//                    Payload is a jsonObject
+//                    {
+//                        "outlet_id": string,
+//                        "power": float,
+//                        "timestamp": string
+//                    }
+                    // Implement day du lieu tu payload vao log table
+
                 }
             });
         } catch (MqttException e) {
